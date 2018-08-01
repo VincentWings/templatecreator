@@ -1,5 +1,48 @@
 $(document).ready(function() {
 
+    //== COLORS
+
+    var siteColor = [];
+
+    $('.button-get-colors').click(function(){
+        var formColors = document.getElementById("form-colors");
+        var formColorsText = '';
+    
+        for (var i = 0; i < formColors.length; i++) {
+            formColorsText += '$color' + (i+1) + ': ' + formColors.elements[i].value + ';' + '\n';
+        }
+
+        var mapObj = {
+        color1:"color-one",
+        color2:"color-two",
+        color3:"color-three",
+        color4:"color-four",
+        color5:"color-five",
+        color6:"color-six",
+        color7:"color-seven",
+        color8:"color-eight",
+        color9:"color-nine",
+        color10:"color-ten",
+        color11:"color-eleven",
+        color12:"color-twelve",
+        color13:"color-thirteen",
+        color14:"color-fourteen",
+        color15:"color-fifteen",
+        color16:"color-sixteen",
+        color17:"color-seventeen",
+        color18:"color-eighteen ",
+        color19:"color-nineteen",
+        color20:"color-twenty",
+        };
+        
+        formColorsText = formColorsText.replace(/color1|color2|color3|color4|color5|color6|color7|color8|color9|color10|color11|color12|color13|color14|color15|color16|color17|color18|color19|color20/gi, function(matched){
+            return mapObj[matched];
+        });
+
+        document.getElementById("codevariables").innerHTML = formColorsText;
+    });
+
+
     //== PANELS
 
     var panelSelected = [];
