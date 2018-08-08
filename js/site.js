@@ -65,6 +65,7 @@ $(document).ready(function() {
         $.each($('input[class="panelCheckbox"]:checked'), function(){            
             panelSelected.push($(this).val());
         });
+        
 
         var i;
         for (i = 0; i < panelSelected.length; i++) { 
@@ -72,12 +73,12 @@ $(document).ready(function() {
             panelNameLowerCase = panelSelected[i].toLowerCase().replace(/\s+/g, '');
 
             panelcodetext += panelScssTitle + panelNameUpperCase + '<br><br>' + '.' + panelNameLowerCase + ' .panel {}' + '<br><br><br>';
-            panelcodetext2 += panelSelected[i].replace(/\s+/g, '') + ', ';
+            panelcodetext2 += panelSelected[i].replace(/\s+/g, '') + ',';
             panelcodetext3 += panelSiteTitle + panelNameUpperCase + '<br><br>' + '.' + panelNameLowerCase + ' {}' + '<br><br><br>';
-            panelcodetext4 += '&lt;!---' + panelTemplateTitle + panelNameUpperCase + '---&gt;' + '<br><br>' + "#cb.renderReusableContent(position='" + panelSelected[i].replace(/\s+/g, '') + ", outerWrapper='" + '<br>' + '<div class="' + panelNameLowerCase + '">' + '    [content]' + '</div>' + "')#" + '<br><br><br>';
+            panelcodetext4 += '&lt;!--- ' + panelTemplateTitle + panelNameUpperCase + ' ---&gt;' + '<br><br>' + "#cb.renderReusableContent(position='" + panelSelected[i].replace(/\s+/g, '') + "', outerWrapper='" + '<br>' + '<div class="' + panelNameLowerCase + '">' + '    [content]' + '</div>' + "')#" + '<br><br><br>';
         }
 
-        panelcodetext2 = panelcodetext2.slice(0, -2) + '<br><br><br>';
+        panelcodetext2 = panelcodetext2.slice(0, -1) + '<br><br><br>';
 
         panelCodePanels.html(panelcodetext);
         panelCodeSite.html(panelcodetext3);
