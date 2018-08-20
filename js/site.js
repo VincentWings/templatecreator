@@ -2,13 +2,12 @@ $(document).ready(function() {
 
     //== COLORS
 
-    var siteColor = [];
-
     $('.button-get-colors').click(function(){
-        var formColors = document.getElementById("form-colors");
-        var formColorsText = '';
+        
+        let formColors = document.querySelector('#form-colors');
+        let formColorsText = '';
     
-        for (var i = 0; i < formColors.length; i++) {
+        for (let i = 0; i < formColors.length; i++) {
             formColorsText += '$color' + (i+1) + ': ' + formColors.elements[i].value + ';' + '\n';
         }
 
@@ -39,26 +38,26 @@ $(document).ready(function() {
             return mapObj[matched];
         });
 
-        document.getElementById("codevariables").innerHTML = formColorsText;
+        document.querySelector('#codevariables').innerHTML = formColorsText;
     });
 
 
     //== PANELS
 
-    var panelSelected = [];
-    var panelScssTitle = "//== PANEL: ";
-    var panelSiteTitle = "//== SECTION: ";
-    var panelTemplateTitle = "PANEL: ";
+    let panelSelected = [];
+    let panelScssTitle = "//== PANEL: ";
+    let panelSiteTitle = "//== SECTION: ";
+    let panelTemplateTitle = "PANEL: ";
 
-    var panelcodetext = "";
-    var panelcodetext2 = "";
-    var panelcodetext3 = "";
-    var panelcodetext4 = "";
+    let panelcodetext = "";
+    let panelcodetext2 = "";
+    let panelcodetext3 = "";
+    let panelcodetext4 = "";
 
-    var panelCodePanels = $('.codepanelscss');
-    var panelCodeSite = $('.codepanelsite');
-    var panelCodeBackOffice = $('.codepanelsbackoffice');
-    var panelCodeTemplate = $('.codepaneltemplate');
+    let panelCodePanels = $('.codepanelscss');
+    let panelCodeSite = $('.codepanelsite');
+    let panelCodeBackOffice = $('.codepanelsbackoffice');
+    let panelCodeTemplate = $('.codepaneltemplate');
 
     $('.button-get').click(function(){
 
@@ -67,7 +66,7 @@ $(document).ready(function() {
         });
         
 
-        var i;
+        let i;
         for (i = 0; i < panelSelected.length; i++) { 
             panelNameUpperCase = panelSelected[i].toUpperCase();
             panelNameLowerCase = panelSelected[i].toLowerCase().replace(/\s+/g, '');
@@ -75,7 +74,7 @@ $(document).ready(function() {
             panelcodetext += panelScssTitle + panelNameUpperCase + '<br><br>' + '.' + panelNameLowerCase + ' .panel {}' + '<br><br><br>';
             panelcodetext2 += panelSelected[i].replace(/\s+/g, '') + ',';
             panelcodetext3 += panelSiteTitle + panelNameUpperCase + '<br><br>' + '.' + panelNameLowerCase + ' {}' + '<br><br><br>';
-            panelcodetext4 += '&lt;!--- ' + panelTemplateTitle + panelNameUpperCase + ' ---&gt;' + '<br><br>' + "#cb.renderReusableContent(position='" + panelSelected[i].replace(/\s+/g, '') + "', outerWrapper='" + '<br>' + '<div class="' + panelNameLowerCase + '">' + '    [content]' + '</div>' + "')#" + '<br><br><br>';
+            panelcodetext4 += '&lt;!--- ' + panelTemplateTitle + panelNameUpperCase + ' ---&gt;' + '<br><br>' + "#cb.renderReusableContent(position='" + panelSelected[i].replace(/\s+/g, '') + "', outerWrapper='" + '<br>' + '    &lt;div class="' + panelNameLowerCase + '"&gt;' + '<br>' + '        [content]' + '<br>' + '    &lt;/div&gt;' + '<br>' + "')#" + '<br><br><br>';
         }
 
         panelcodetext2 = panelcodetext2.slice(0, -1) + '<br><br><br>';
