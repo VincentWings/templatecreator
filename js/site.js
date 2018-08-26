@@ -111,7 +111,9 @@ $(document).ready(function() {
 
         formPanel.appendChild(newPanel);
 
-        formPanel.insertAdjacentHTML('beforeend', newPanelName + '<br>')
+        formPanel.insertAdjacentHTML('beforeend', newPanelName + '<br>');
+
+        panelExtra.value = "";
 
     });
 
