@@ -99,9 +99,12 @@ $(document).ready(function() {
 
         let formPanel = document.querySelector('#form-panels');
         let panelExtra = document.querySelector('.panelExtraInput');
+
         let newPanel = document.createElement('input');
         let newPanelName = panelExtra.value;
         let newPanelNameLowerCase = newPanelName.toLowerCase();
+
+        let newPanelLabel = document.createElement('label');
 
         newPanel.className = 'panelCheckbox';
         newPanel.setAttribute('type', 'checkbox');
@@ -109,9 +112,14 @@ $(document).ready(function() {
         newPanel.setAttribute('value', newPanelName);
         newPanel.checked = true;
 
-        formPanel.appendChild(newPanel);
+        newPanelLabel.setAttribute('for', newPanelNameLowerCase.replace(/\s+/g, ''));
 
-        formPanel.insertAdjacentHTML('beforeend', newPanelName + '<br>');
+        newPanelLabel.textContent = newPanelName;
+
+        formPanel.appendChild(newPanel);
+        formPanel.appendChild(newPanelLabel);
+
+        formPanel.insertAdjacentHTML('beforeend', '<br>');
 
         panelExtra.value = "";
 
