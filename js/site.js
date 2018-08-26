@@ -90,4 +90,29 @@ $(document).ready(function() {
         location.reload();
     });
 
+
+    //== ADD EXTRA PANELS
+
+    const addExtraPanel = document.querySelector('.button-add');
+
+    addExtraPanel.addEventListener('click', () => {
+
+        let formPanel = document.querySelector('#form-panels');
+        let panelExtra = document.querySelector('.panelExtraInput');
+        let newPanel = document.createElement('input');
+        let newPanelName = panelExtra.value;
+        let newPanelNameLowerCase = newPanelName.toLowerCase();
+
+        newPanel.className = 'panelCheckbox';
+        newPanel.setAttribute('type', 'checkbox');
+        newPanel.setAttribute('name', newPanelNameLowerCase.replace(/\s+/g, ''));
+        newPanel.setAttribute('value', newPanelName);
+        newPanel.checked = true;
+
+        formPanel.appendChild(newPanel);
+
+        formPanel.insertAdjacentHTML('beforeend', newPanelName + '<br>')
+
+    });
+
 });

@@ -1,0 +1,90 @@
+//== COLORS
+
+$color-black:       #000;
+$color-one:         orange;
+
+//== GENERAL
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+.content {
+    max-width: 1140px;
+    margin: auto;
+}
+
+
+//== BUTTONS
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: $color-one;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    &-add {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    &:hover {
+        background: lighten($color-one, 10%);
+    }
+}
+
+
+//== FORMS: COLORS
+
+#form-colors {
+    label,
+    input {
+        display: flex;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input {
+        margin-bottom: 10px;
+    }
+}
+
+
+//== FORMS: PANEL
+
+#form-panels {
+    &-add {
+        label,
+        input {
+            display: flex;
+        }
+    }
+}
+
+
+//== SECTION: PANELS
+
+.section__panels {
+    &__selection,
+    &__code  {
+        margin-top: 40px;
+    }
+}
+
+.section__panels__selection,
+.section__panels__code  {
+    margin-top: 40px;
+}
