@@ -91,6 +91,15 @@ $(document).ready(function() {
     });
 
 
+    //== REMOVE PANEL
+
+    $('.button-remove').click(function(){
+        $(this).prev('label').remove();
+        $(this).prev('input').remove();
+        $(this).remove();
+    });
+
+
     //== ADD EXTRA PANELS
 
     const addExtraPanel = document.querySelector('.button-add');
@@ -119,9 +128,17 @@ $(document).ready(function() {
         formPanel.appendChild(newPanel);
         formPanel.appendChild(newPanelLabel);
 
-        formPanel.insertAdjacentHTML('beforeend', '<br>');
+        formPanel.insertAdjacentHTML('beforeend', '<a class="button button-remove button-small">-</a><br>');
 
         panelExtra.value = "";
+
+        //== REMOVE ADDED PANEL
+
+        $('.button-remove').click(function(){
+            $(this).prev('label').remove();
+            $(this).prev('input').remove();
+            $(this).remove();
+        });
 
     });
 
